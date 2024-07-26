@@ -1,5 +1,9 @@
 package DAO;
 
-public class UserDAO {
+/**
+ *@author Jatin
+ */
+public interface UserDAO {
 
+	public boolean isRegistered(String UserName);
 }
