@@ -16,5 +16,7 @@ public interface ProductDAO {
 	 void addProduct(Productbean product);
 	 void deleteProduct(int productId);
 	 List<Productbean> getAllProducts();
-	 
+	 List<Productbean> getProductsByUserId(int userId);
+	
+
 }
