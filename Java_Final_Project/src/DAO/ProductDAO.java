@@ -17,6 +17,5 @@ public interface ProductDAO {
 	 void deleteProduct(int productId);
 	 List<Productbean> getAllProducts();
 	 List<Productbean> getProductsByUserId(int userId);
-	
-
+	 List<Productbean> getAllsurplusProducts();
 }
