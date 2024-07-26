@@ -6,4 +6,5 @@ package DAO;
 public interface UserDAO {
 
 	public boolean isRegistered(String UserName);
+	 public String isValidCredential(String UserName, String password);
 }
