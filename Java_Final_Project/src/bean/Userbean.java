@@ -1,4 +1,4 @@
-package DAO;
+package bean;
 
 public class Userbean {
 
