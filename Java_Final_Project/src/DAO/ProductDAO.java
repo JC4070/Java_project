@@ -13,5 +13,6 @@ public interface ProductDAO {
 	
 	 Productbean getProductById(int productId);
 	 void updateProduct(Productbean product);
+	 void addProduct(Productbean product);
 	 
 }
