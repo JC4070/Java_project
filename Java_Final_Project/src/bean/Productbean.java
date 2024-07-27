@@ -29,4 +29,9 @@ public class Productbean {
 		
 	}
 
+	public void setUserId(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

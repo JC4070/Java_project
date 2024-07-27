@@ -45,12 +45,14 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	private Productbean mapResultSetToProduct(ResultSet rs) throws SQLException {
 		Productbean product = new Productbean();
+		product.setUserId(rs.getInt("user_id"));
 		 product.setProductName(rs.getString("product_name"));
 		 product.setProductId(rs.getInt("product_id"));
 		 product.setProductName(rs.getString("product_name"));
 	     product.setCategory(rs.getString("category"));
 	     product.setDescription(rs.getString("description"));
 	        product.setSellerPrice(rs.getBigDecimal("seller_price"));   
+	        
 		return null;
 		
 	}
