@@ -44,6 +44,7 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	
 	private Productbean mapResultSetToProduct(ResultSet rs) throws SQLException {
+		Productbean product = new Productbean();
 		return null;
 	}
 	
