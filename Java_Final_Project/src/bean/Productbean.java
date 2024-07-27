@@ -12,4 +12,9 @@ public class Productbean {
 		
 	}
 
+	public void setCategory(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

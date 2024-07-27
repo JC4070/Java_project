@@ -47,6 +47,8 @@ public class ProductDAOImpl implements ProductDAO {
 		Productbean product = new Productbean();
 		product.setProductName(rs.getString("product_name"));
 		 product.setProductId(rs.getInt("product_id"));
+		 product.setProductName(rs.getString("product_name"));
+	        product.setCategory(rs.getString("category"));
 		return null;
 	}
 	
