@@ -7,4 +7,9 @@ public class Productbean {
 		
 	}
 
+	public void setProductId(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
