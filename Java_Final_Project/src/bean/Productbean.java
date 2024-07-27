@@ -1,5 +1,7 @@
 package bean;
 
+import java.math.BigDecimal;
+
 public class Productbean {
 
 	public void setProductName(String string) {
@@ -13,6 +15,16 @@ public class Productbean {
 	}
 
 	public void setCategory(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDescription(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSellerPrice(BigDecimal bigDecimal) {
 		// TODO Auto-generated method stub
 		
 	}
