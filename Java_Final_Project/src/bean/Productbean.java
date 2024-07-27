@@ -50,4 +50,9 @@ public class Productbean {
 		
 	}
 
+	public String getProductName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
