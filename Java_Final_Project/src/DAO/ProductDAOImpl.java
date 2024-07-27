@@ -24,12 +24,28 @@ public class ProductDAOImpl implements ProductDAO {
 	        return product;
 	    }
 
+	
+	
 	public List<Productbean> getProductsByUserId(int userId) {
         List<Productbean> productList = new ArrayList<>();
         String sql = "SELECT * FROM Product WHERE user_id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Productbean product = mapResultSetToProduct(rs);
+                productList.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productList;
+    }
+	
+	
+	private Productbean mapResultSetToProduct(ResultSet rs) throws SQLException {
+		return null;
+	}
 	
 	
 }
