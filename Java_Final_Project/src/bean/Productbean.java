@@ -1,6 +1,7 @@
 package bean;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Productbean {
 
@@ -30,6 +31,21 @@ public class Productbean {
 	}
 
 	public void setUserId(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setImageUrl(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setFoodCondition(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAddedDate(LocalDate localDate) {
 		// TODO Auto-generated method stub
 		
 	}
