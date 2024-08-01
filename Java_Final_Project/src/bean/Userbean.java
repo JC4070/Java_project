@@ -1,7 +1,9 @@
 package bean;
 
+import java.io.Serializable;
 
-public class Userbean {
+@SuppressWarnings("serial")
+public class Userbean implements Serializable {
 	
 	 private int UserId;
 	    private String username;
