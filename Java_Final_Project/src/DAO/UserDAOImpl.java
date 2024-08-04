@@ -58,4 +58,35 @@ public class UserDAOImpl {
 
 		return status;
 	}
+	
+	public String isValidCredential(String UserName, String password) {
+		String status = "Login Denied! Incorrect Username or Password";
+
+		Connection con = DBUtil.provideConnection();
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+
+			ps = con.prepareStatement("select * from users where username=? and password=?");
+
+			ps.setString(1, UserName);
+			ps.setString(2, password);
+
+			rs = ps.executeQuery();
+
+			if (rs.next())
+				status = "valid";
+
+		} catch (SQLException e) {
+			status = "Error: " + e.getMessage();
+			e.printStackTrace();
+		}
+
+		DBUtil.closeConnection(con);
+		DBUtil.closeConnection(ps);
+		DBUtil.closeConnection(rs);
+		return status;
+	}
 }
