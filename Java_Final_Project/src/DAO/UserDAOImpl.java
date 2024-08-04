@@ -5,15 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Utils.DBUtil;
-import Bean.Userbean;
+import bean.Userbean;
 import DAO.UserDAO;
+import Utility.DButility;
 
 /**
  * @authoe jatin
  */
 public class UserDAOImpl {
 
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	@Override
 	public String registerUser(Userbean user) {
 
@@ -25,7 +30,7 @@ public class UserDAOImpl {
 			status = "Username Already Registered!";
 			return status;
 		}
-		Connection conn = DBUtil.provideConnection();
+		Connection conn = DButility.provideConnection();
 		PreparedStatement ps = null;
 		if (conn != null) {
 			System.out.println("Connected Successfully!");
@@ -53,11 +58,18 @@ public class UserDAOImpl {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(ps);
+		DButility.closeConnection(ps);
+		DButility.closeConnection(ps);
 
 		return status;
 	}
+	
+	/**
+	 * 
+	 * @param UserName
+	 * @param password
+	 * @return
+	 */
 	
 	public String isValidCredential(String UserName, String password) {
 		String status = "Login Denied! Incorrect Username or Password";
@@ -84,19 +96,66 @@ public class UserDAOImpl {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
+		DButility.closeConnection(con);
+		DButility.closeConnection(ps);
+		DButility.closeConnection(rs);
 		return status;
 	}
+	
+	/**
+	 * 
+	 * @param username
+	 * @param firstName
+	 * @param lastName
+	 * @param password
+	 * @param userType
+	 * @return
+	 */
 	  @Override
 		public String registerUser(String username,String firstName,String lastName, String password, String userType) {
 
-			Userbean user = new Userbean( username, firstName, lastName,password, userType);
+			bean.Userbean user = new Userbean( username, firstName, lastName,password, userType);
 
 			String status = registerUser(user);
 
 			return status;
 		}
 
+	  
+	  /**
+	   * 
+	   * @param UserName
+	   * @return
+	   */
+	  public boolean isRegistered(String UserName) {
+			boolean flag = false;
+
+			Connection con = DButility.provideConnection();
+
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+
+			try {
+				ps = con.prepareStatement("select * from user where username=?");
+
+				ps.setString(1, UserName);
+
+				rs = ps.executeQuery();
+
+				if (rs.next())
+					flag = true;
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			DButility.closeConnection(con);
+			DButility.closeConnection(ps);
+			DButility.closeConnection(rs);
+
+			return flag;
+		}
+	  
+	  
 }
