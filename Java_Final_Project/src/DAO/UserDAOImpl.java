@@ -157,6 +157,12 @@ public class UserDAOImpl {
 			return flag;
 		}
 	  
+	  
+	  /**
+	   * 
+	   * @param UserName
+	   * @return
+	   */
 	  public String getFName(String UserName) {
 			String fname = "";
 
@@ -185,6 +191,36 @@ public class UserDAOImpl {
 
 			return fname;
 		}
+	       
+	  public String getUserType(String username) {
+	        String userType = null;
+
+	        Connection con = DBUtil.provideConnection();
+	        PreparedStatement ps = null;
+	        ResultSet rs = null;
+
+	    try {
+	        ps = con.prepareStatement("SELECT userType FROM Users WHERE username = ?");
+	        ps.setString(1, username);
+	        rs = ps.executeQuery();
+
+	        if (rs.next()) {
+	            userType = rs.getString("userType");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        // Close resources
+	        DBUtil.closeConnection(con);
+	        DBUtil.closeConnection(ps);
+	        DBUtil.closeConnection(rs);
+	    }
+
+	    return userType;
+	}
+
 	        
+	  
+	  
 	  
 }
