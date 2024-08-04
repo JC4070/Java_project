@@ -13,6 +13,12 @@ public class ProductDAOImpl implements ProductDAO {
 	private Connection connection;
 	
 	
+	public ProductDAOImpl(Connection connection2) {
+		this.connection = connection;
+	}
+
+
+
 	public Productbean getProductById(int productId) {
 		 Productbean product = null;
 	        String sql = "SELECT * FROM Product WHERE product_id = ?";
