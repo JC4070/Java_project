@@ -19,7 +19,6 @@ public class UserDAOImpl {
 	 * @param user
 	 * @return
 	 */
-	@Override
 	public String registerUser(Userbean user) {
 
 		String status = "User Registration Failed!";
@@ -74,7 +73,7 @@ public class UserDAOImpl {
 	public String isValidCredential(String UserName, String password) {
 		String status = "Login Denied! Incorrect Username or Password";
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DButility.provideConnection();
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -111,8 +110,7 @@ public class UserDAOImpl {
 	 * @param userType
 	 * @return
 	 */
-	  @Override
-		public String registerUser(String username,String firstName,String lastName, String password, String userType) {
+	  public String registerUser(String username,String firstName,String lastName, String password, String userType) {
 
 			bean.Userbean user = new Userbean( username, firstName, lastName,password, userType);
 
@@ -166,7 +164,7 @@ public class UserDAOImpl {
 	  public String getFName(String UserName) {
 			String fname = "";
 
-			Connection con = DBUtil.provideConnection();
+			Connection con = DButility.provideConnection();
 
 			PreparedStatement ps = null;
 			ResultSet rs = null;
@@ -201,7 +199,7 @@ public class UserDAOImpl {
 	  public String getUserType(String username) {
 	        String userType = null;
 
-	        Connection con = DBUtil.provideConnection();
+	        Connection con = DButility.provideConnection();
 	        PreparedStatement ps = null;
 	        ResultSet rs = null;
 
@@ -217,9 +215,9 @@ public class UserDAOImpl {
 	        e.printStackTrace();
 	    } finally {
 	        // Close resources
-	        DBUtil.closeConnection(con);
-	        DBUtil.closeConnection(ps);
-	        DBUtil.closeConnection(rs);
+	        DButility.closeConnection(con);
+	        DButility.closeConnection(ps);
+	        DButility.closeConnection(rs);
 	    }
 
 	    return userType;
@@ -235,7 +233,7 @@ public class UserDAOImpl {
 
 			Userbean user = null;
 
-			Connection con = DBUtil.provideConnection();
+			Connection con = DButility.provideConnection();
 
 			PreparedStatement ps = null;
 			ResultSet rs = null;
@@ -261,9 +259,9 @@ public class UserDAOImpl {
 				e.printStackTrace();
 			}
 
-			DBUtil.closeConnection(con);
-			DBUtil.closeConnection(ps);
-			DBUtil.closeConnection(rs);
+			DButility.closeConnection(con);
+			DButility.closeConnection(ps);
+			DButility.closeConnection(rs);
 
 			return user;
 		}

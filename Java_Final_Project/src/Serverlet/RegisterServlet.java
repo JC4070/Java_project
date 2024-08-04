@@ -1,7 +1,7 @@
 package Serverlet;
 
 import DAO.UserDAOImpl;
-import Bean.Userbean;
+import bean.Userbean;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
