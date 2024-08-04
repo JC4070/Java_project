@@ -191,6 +191,12 @@ public class UserDAOImpl {
 
 			return fname;
 		}
+	  
+	  /**
+	   * 
+	   * @param username
+	   * @return
+	   */
 	       
 	  public String getUserType(String username) {
 	        String userType = null;
@@ -218,9 +224,50 @@ public class UserDAOImpl {
 
 	    return userType;
 	}
-
+/**
+ * 
+ * @param UserName
+ * @param password
+ * @return
+ */
 	        
-	  
+	  public Userbean getUserDetails(String UserName, String password) {
+
+			Userbean user = null;
+
+			Connection con = DBUtil.provideConnection();
+
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+
+			try {
+				ps = con.prepareStatement("select * from user where username=? and password=?");
+				ps.setString(1, UserName);
+				ps.setString(2, password);
+				rs = ps.executeQuery();
+
+				if (rs.next()) {
+					user = new Userbean();
+	                               user.setUsername(rs.getString("username"));
+					user.setUsername(rs.getString("firstName"));
+	                                user.setUsername(rs.getString("lastName"));
+					user.setPassword(rs.getString("password"));
+	                                user.setUserType(rs.getString("UserType"));
+
+					return user;
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			DBUtil.closeConnection(con);
+			DBUtil.closeConnection(ps);
+			DBUtil.closeConnection(rs);
+
+			return user;
+		}
+
 	  
 	  
 }
