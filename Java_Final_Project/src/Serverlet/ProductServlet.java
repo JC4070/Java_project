@@ -2,7 +2,7 @@ package Serverlet;
 
 import DAO.ProductDAO;
 import DAO.ProductDAOImpl;
-import Bean.Productbean;
+import bean.Productbean;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Connection;
