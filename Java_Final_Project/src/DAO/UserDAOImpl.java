@@ -89,4 +89,14 @@ public class UserDAOImpl {
 		DBUtil.closeConnection(rs);
 		return status;
 	}
+	  @Override
+		public String registerUser(String username,String firstName,String lastName, String password, String userType) {
+
+			Userbean user = new Userbean( username, firstName, lastName,password, userType);
+
+			String status = registerUser(user);
+
+			return status;
+		}
+
 }
