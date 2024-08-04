@@ -157,5 +157,34 @@ public class UserDAOImpl {
 			return flag;
 		}
 	  
+	  public String getFName(String UserName) {
+			String fname = "";
+
+			Connection con = DBUtil.provideConnection();
+
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+
+			try {
+				ps = con.prepareStatement("select firstName from user where username=?");
+				ps.setString(1, UserName);
+
+				rs = ps.executeQuery();
+
+				if (rs.next()) {
+					fname = rs.getString(1);
+
+					fname = fname.split(" ")[0];
+
+				}
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+
+			return fname;
+		}
+	        
 	  
 }
